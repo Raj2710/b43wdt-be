@@ -28,7 +28,7 @@ const validate = async(req,res,next)=>{
         if(Math.floor((+new Date())/1000) < data.exp)
             next()
         else
-            res.status(402).send({message:"Token Expired"})
+            res.status(401).send({message:"Token Expired"})
     }
     else
     {
@@ -47,7 +47,7 @@ const roleAdminGaurd = async(req,res,next)=>{
         if(data.role==='admin')
             next()
         else
-            res.status(402).send({message:"Only Admins are allowed"})
+            res.status(401).send({message:"Only Admins are allowed"})
     }
     else
     {
